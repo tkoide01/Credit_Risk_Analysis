@@ -1,7 +1,7 @@
 # Credit Risk Analysis
 
 ## Overview of Project:
-Credit risk is an inherently unbalanced classification problem, as good loans easily outnumber risky loans. Therefore, you’ll need to employ different techniques to train and evaluate models with unbalanced classes
+Employ several resampling techniques and machine learning models to predict Credit risk from credit card dataset. Given credit risk is an inherently unbalanced classification problem, as good loans easily outnumber risky loans, employing different techniques to train and evaluate models with unbalanced classes is essential for better prediction of 'high risk' credit.
 
 ### Purpose:
 Use `imbalanced-learn` and `scikit-learn` libraries to build and evaluate models predicting credit risk using resampling. Followings are the type of resampling we use on the credit card credit dataset from LendingClub:
@@ -18,35 +18,38 @@ Lastly, we review the performance of each model and evaluate which approach is s
 
 ## Results:
 #### Naive Random Oversampling:
-+ The below VBA code is built to output Ticker, Totaly Daily Volume, and Return of each stock. Also, the code compiles functions to format the output code and report its execution time; 
++ The accurary score of model is 64.9%. The precision of 'high_risk' credit is as low as 1% and recall is 73%. Note that F1 score is also very low due to low precision.  
 
    ![](images/1_random_oversampling.png)
 
 #### SMOTE oversampling:
-+ Enter the worksheet's title and headers for tables. Note that `Worksheets("All Stocks Analysis").Activate` code is there to ensure the table is created on the worksheet "All Stocks Analysis" that we want to report.
++ The accurary score of model is 65.8%. The precision of 'high_risk' credit is as low as 1% and recall is 63%. Note that F1 score is also very low due to low precision.  
 
    ![](images/2_SMOTE.png)
 
 #### Cluster Centroids undersampling:
-+ Initialize array of all 12 tickers.
++ The accurary score of model is 54.4%. The precision of 'high_risk' credit is as low as 1% and recall is 69%. Note that F1 score is also very low due to low precision.  
    
    ![](images/3_clustercentroids.png)
    
 #### SMOTEENN Combination(over and under) sampling:
-+ Create and initialize the variables `tickerIndex`  and output arrays `tickerVolume, tickerStartingPrices,` and `tickerEndingPrices` to organize the upcoming code.
++ The accurary score of model is 66.2%. The precision of 'high_risk' credit is as low as 1% and recall is 78%. Note that F1 score is also very low due to low precision.  
    
    ![](images/4_SMOTEENN.png)
    
 #### Balanced Random Forest Classifier:
-+ Write `for` loop and `If Then` codes to determine `tickerVolume, tickerStartingPrices,` and `tickerEndingPrices`. 
++ The accurary score of model is 77.2%. The precision of 'high_risk' credit is slightly higher at 3% and recall is 78%. Note that F1 score is also very low due to low precision. 
 
    
    ![](images/5_BalancedRandomForestClassifier.png)
    
 #### Easy Ensemble AdaBoost Classifier:
-+ Write the formula to output Ticker, Total Daily Volume, and Return to the table.
-   
++ The accurary score of model is 93.2% and it is much higher compared to the rest. The precision of 'high_risk' credit is also higher at 9% and recall is 92%. Note that F1 score is also slightly higher at 16%.
+
+
    ![](images/6_EasyEnsembleClassifier.png)
    
 
 ## Summary:
++ Reviewing the performance of all six models, we can see that some models have better accuracy score and balance in precision and recall scores. Especially, Easy Ensemble AdaBoost Classifier is top at accuracy score of 93.2% and precision of predicting high risk credit of 9%, while the other models have less than 3% in precision. This model also has high recall of 92% and thus the F1 score is 16%, much higher than the rest of five models. 
++ Therefore, in this Credit Card Credit Dataset, Easy Ensemble AdaBoost Classifier performs the best in predicting high risk credit.
